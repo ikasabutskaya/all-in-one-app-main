@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+            crossorigin="anonymous"></script>
+
+    <script src="/js/scripts-pnlhub.js"></script>
+
+    <title>Web App example by pnlhub</title>
+
+</head>
+<body>
+
+<div class="container py-4">
+    <header class="pb-3 mb-4 border-bottom">
+        <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+            <img class="fluid rounded" src="/img/logo.png" alt="pnlhub logo" height="40">
+            <span class="ms-3 fs-4">Hello, {{ current_user }}!</span>
+        </a>
+    </header>
+
+    <div class="p-5 mb-4 bg-light rounded-3">
+        <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold">web application example</h1>
+            <p class="col-md-8 fs-4">
+                This is an example of web app on BottlePy framework. There are also jQuery and Twitter Bootstrap
+                libraries included on this page
+            </p>
+            <button class="btn btn-primary btn-lg" type="button">Example button</button>
+        </div>
+    </div>
+
+    % for client in clients:
+    <div>{{ client['first_name'] }} {{ client['last_name'] }} <b>{{ client['email'] }}</b></div>
+    % end
+
+    <div class="row align-items-md-stretch">
+        <div class="col-md-6">
+            <div class="h-100 p-5 text-bg-dark rounded-3">
+                <h2>Pass variables to any page</h2>
+                <p>
+                    Just check how content variables (<i>current_user</i> and <i>app_version</i>) are passed to this
+                    page and make your own powerful pages with any kind of data
+                </p>
+                <button class="btn btn-outline-light" type="button">Example button</button>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="h-100 p-5 bg-light border rounded-3">
+                <h2>Find us on github</h2>
+                <p>
+                    If you have questions, you can easily find us on
+                    <a href="https://github.com/pnlhub/" target="_blank">github</a>
+                    <br>
+                    Don't hesitate to contact us :)
+                </p>
+                <button class="btn btn-outline-secondary" type="button">Example button</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="pt-3 mt-4 text-muted border-top">
+        <div class="row">
+            <div class="col">
+                pnlhub © 2023
+            </div>
+            <div class="col text-end">
+                build version {{ app_version }}
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+</body>
+</html>
